@@ -39,3 +39,21 @@ Run: ```$ gulp```
 
 ### Changing the default behavior
 Check what you run in ```gulp.task('default', ['browser-sync', 'watch'])```.
+
+## Category
+Just need to add your category-name into ```categories``` in the post.
+We will automatically list them in ```nav.html```.
+
+### Old way in original repo
+Originally, we need to put something like below into a html page
+(e.g. ```category1.html```), and move it into ```/categories```.
+```
+{% for post in site.categories.category1 %}
+  <div class='listing'>
+    <a class='post-title' href='{{ post.url }}'>{{ post.title }}</a>
+    <p class='meta'>{{ post.date | date_to_long_string }} / by {{ post.author }}</p>
+  </div>
+{% endfor %}
+```
+Then we need to add ```a(href='{{ site.url }}/categories/category1.html') Category 1```
+into ```nav.jade``` to generate a new ```nav.html```.
